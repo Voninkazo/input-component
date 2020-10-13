@@ -1,0 +1,83 @@
+body {
+    font-family: 'Roboto';
+}
+
+input {
+    padding: 18px;
+    margin: 1rem;
+    border: 1px solid #828282;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+p {
+    margin: 0;
+    padding: 1rem;
+}
+
+::placeholder {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #828282;
+}
+
+.input:hover {
+    border: 1px solid #333333;
+}
+
+.input:focus {
+    border: 1px solid #2962FF;
+    outline: none;
+}
+
+.error {
+    border: 1px solid #D32F2F;
+    outline: none;
+}
+
+.error:focus {
+    border: 1px solid #D32F2F;
+    outline: none;
+}
+
+.label-error {
+    color: #D32F2F;
+}
+
+.error:hover~.label-error {
+    color: #828282;
+}
+
+.error:hover {
+    border: 1px solid #333333;
+}
+
+.helpertext {
+    display: flex;
+    flex-direction: column;
+}
+
+.helpertext input {
+    width: 200px;
+}
+
+span {
+    font-size: 10px;
+    line-height: 14px;
+    margin-left: 1rem;
+    /* Gray 3 */
+    color: #828282;
+}
+
+img svg {
+    margin: 0 0.5rem 0 0;
+    width: 20px;
+    height: 20px;
+}
+
+.icon--right {
+    margin: 0 0 0 0.5rem;
+}
+
+/*# sourceMappingURL=/inputs.882997ae.css.map */
