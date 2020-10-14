@@ -28437,7 +28437,12 @@ function Icons(props) {
 
 var _default = Icons;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./icons/mobile.svg":"icons/mobile.svg","./icons/lock-closed.svg":"icons/lock-closed.svg","./icons/phone-outgoing.svg":"icons/phone-outgoing.svg","./icons/thumb-up.svg":"icons/thumb-up.svg","./icons/mail.svg":"icons/mail.svg","./inputs.css":"inputs.css"}],"Inputs.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./icons/mobile.svg":"icons/mobile.svg","./icons/lock-closed.svg":"icons/lock-closed.svg","./icons/phone-outgoing.svg":"icons/phone-outgoing.svg","./icons/thumb-up.svg":"icons/thumb-up.svg","./icons/mail.svg":"icons/mail.svg","./inputs.css":"inputs.css"}],"icons.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Inputs.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28451,15 +28456,38 @@ require("./inputs.css");
 
 var _Icon = _interopRequireDefault(require("./Icon"));
 
+require("./icons.css");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Inputs(props) {
-  var classes = props.error ? "error" : 'input';
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("label", {
+  var classes;
+
+  if (props.error) {
+    classes = "".concat(props.error);
+  }
+
+  if (props.value) {
+    classes = "".concat(props.value);
+  } else if (props.disabled) {
+    classes = "input--disabled";
+  } else if (props.size) {
+    classes = "input--".concat(props.size);
+  } else if (props.fullWidth) {
+    classes = "fullwidth";
+  } else if (props.multiLine) {
+    classes = "multiline";
+  }
+
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "parent"
+  }, /*#__PURE__*/_react.default.createElement("label", {
     className: props.helperTexts ? "helpertext" : ''
   }, /*#__PURE__*/_react.default.createElement("p", {
     className: props.error ? "label-error" : ''
-  }, "Label"), /*#__PURE__*/_react.default.createElement("span", null, props.startIcon ? /*#__PURE__*/_react.default.createElement(_Icon.default, {
+  }, "Label"), /*#__PURE__*/_react.default.createElement("span", {
+    className: props.startIcon ? "icon--left" : "icon--right"
+  }, props.startIcon ? /*#__PURE__*/_react.default.createElement(_Icon.default, {
     name: props.startIcon,
     align: "icon--left"
   }) : '', props.endIcon ? /*#__PURE__*/_react.default.createElement(_Icon.default, {
@@ -28469,13 +28497,17 @@ function Inputs(props) {
     className: classes,
     disabled: props.disabled,
     type: "text",
+    value: props.value ? "".concat(props.value) : '',
     placeholder: props.children
-  }), /*#__PURE__*/_react.default.createElement("span", null, props.helperTexts ? "".concat(props.helperTexts) : '')));
+  }), props.helperTexts ? /*#__PURE__*/_react.default.createElement("span", null, props.helperTexts ? "".concat(props.helperTexts) : '') : '', props.multiLine ? /*#__PURE__*/_react.default.createElement("textarea", {
+    name: "text",
+    rows: "4"
+  }) : ''));
 }
 
 var _default = Inputs;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./inputs.css":"inputs.css","./Icon":"Icon.js"}],"App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./inputs.css":"inputs.css","./Icon":"Icon.js","./icons.css":"icons.css"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28503,6 +28535,17 @@ function App() {
     startIcon: "mobile"
   }), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     endIcon: "thumbup"
+  }), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+    value: "input text"
+  }), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+    size: "sm"
+  }, "Placeholder"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+    size: "md"
+  }, "Placeholder"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+    fullWidth: true
+  }, "Placeholder"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+    multiLine: true,
+    rows: "4"
   }));
 }
 

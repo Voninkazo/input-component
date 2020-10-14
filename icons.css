@@ -1,13 +1,15 @@
-label {
+.parent {
     position: relative;
 }
 
 .icon--right {
     position: absolute;
-    text-align: right;
+    bottom: 23px;
+    right: 90px;
 }
 
 .icon--left {
     position: absolute;
-    text-align: left;
+    bottom: 15px;
+    right: 90px;
 }

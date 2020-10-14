@@ -11,6 +11,11 @@ function App() {
                 <Inputs helperTexts="Some texts" error>Placeholder</Inputs>
                 <Inputs startIcon="mobile"></Inputs>
                 <Inputs endIcon="thumbup"></Inputs>
+                <Inputs value="input text"></Inputs>
+                <Inputs size="sm">Placeholder</Inputs>
+                <Inputs size="md">Placeholder</Inputs>
+                <Inputs fullWidth>Placeholder</Inputs>
+                <Inputs multiLine rows="4"></Inputs>
             </div>
     )   
 }

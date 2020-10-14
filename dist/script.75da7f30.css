@@ -62,11 +62,41 @@ p {
     width: 200px;
 }
 
+.input--disabled {
+    background-color: #F2F2F2;
+    border: 1px solid #E0E0E0;
+}
+
+.text {
+    font-size: 14px;
+    line-height: 20px;
+    color: #333333;
+}
+
+.input--sm {
+    padding-inline-start: 12px;
+    padding-inline-end: 12px;
+    padding-block-end: 10px;
+    padding-block-start: 10px;
+}
+
+.input--md {
+    padding-inline-start: 12px;
+    padding-inline-end: 12px;
+    padding-block-end: 18px;
+    padding-block-start: 18px;
+}
+
+.fullwidth {
+    width: 100%;
+}
+
+.multiline {}
+
 span {
     font-size: 10px;
     line-height: 14px;
     margin-left: 1rem;
-    /* Gray 3 */
     color: #828282;
 }
 
@@ -74,6 +104,21 @@ img svg {
     margin: 0 0.5rem 0 0;
     width: 20px;
     height: 20px;
+}
+.parent {
+    position: relative;
+}
+
+.icon--right {
+    position: absolute;
+    bottom: 23px;
+    right: 90px;
+}
+
+.icon--left {
+    position: absolute;
+    bottom: 15px;
+    right: 90px;
 }
 
 /*# sourceMappingURL=/script.75da7f30.css.map */
