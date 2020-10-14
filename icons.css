@@ -1,15 +1,29 @@
-.parent {
-    position: relative;
+.endIcon {
+    background-repeat: no-repeat;
+    background-position: right;
 }
 
-.icon--right {
-    position: absolute;
-    bottom: 23px;
-    right: 90px;
+.startIcon {
+    background-repeat: no-repeat;
+    background-position: 0.5rem;
 }
 
-.icon--left {
-    position: absolute;
-    bottom: 15px;
-    right: 90px;
+.mobile {
+    background-image: url(./icons/mobile.svg);
+}
+
+.thumbup {
+    background-image: url(./icons/thumb-up.svg);
+}
+
+.phoneoutgoing {
+    background-image: url(./icons/phone-outgoing.svg);
+}
+
+.lockclosed {
+    background-image: url(./icons/lock-closed.svg);
+}
+
+.mail {
+    background-image: url(./icons/mail.svg);
 }

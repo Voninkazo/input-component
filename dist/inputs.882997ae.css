@@ -10,6 +10,11 @@ input {
     border-radius: 8px;
 }
 
+.flex-container {
+    display: flex;
+    flex-direction: row;
+}
+
 p {
     margin: 0;
     padding: 1rem;
@@ -20,6 +25,7 @@ p {
     font-size: 14px;
     line-height: 20px;
     color: #828282;
+    padding-inline-start: 1rem;
 }
 
 .input:hover {
@@ -36,21 +42,21 @@ p {
     outline: none;
 }
 
-.error:focus {
-    border: 1px solid #D32F2F;
-    outline: none;
-}
-
 .label-error {
     color: #D32F2F;
 }
 
-.error:hover~.label-error {
+.label-error:hover {
     color: #828282;
 }
 
 .error:hover {
     border: 1px solid #333333;
+}
+
+.error:focus {
+    border: 1px solid #D32F2F;
+    outline: none;
 }
 
 .helpertext {
@@ -65,6 +71,10 @@ p {
 .input--disabled {
     background-color: #F2F2F2;
     border: 1px solid #E0E0E0;
+}
+
+.text-error {
+    color: #D32F2F;
 }
 
 .text {

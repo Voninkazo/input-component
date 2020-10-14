@@ -10,6 +10,11 @@ input {
     border-radius: 8px;
 }
 
+.flex-container {
+    display: flex;
+    flex-direction: row;
+}
+
 p {
     margin: 0;
     padding: 1rem;
@@ -20,6 +25,7 @@ p {
     font-size: 14px;
     line-height: 20px;
     color: #828282;
+    padding-inline-start: 1rem;
 }
 
 .input:hover {
@@ -36,21 +42,21 @@ p {
     outline: none;
 }
 
-.error:focus {
-    border: 1px solid #D32F2F;
-    outline: none;
-}
-
 .label-error {
     color: #D32F2F;
 }
 
-.error:hover~.label-error {
+.label-error:hover {
     color: #828282;
 }
 
 .error:hover {
     border: 1px solid #333333;
+}
+
+.error:focus {
+    border: 1px solid #D32F2F;
+    outline: none;
 }
 
 .helpertext {
@@ -65,6 +71,10 @@ p {
 .input--disabled {
     background-color: #F2F2F2;
     border: 1px solid #E0E0E0;
+}
+
+.text-error {
+    color: #D32F2F;
 }
 
 .text {
@@ -105,20 +115,34 @@ img svg {
     width: 20px;
     height: 20px;
 }
-.parent {
-    position: relative;
+.endIcon {
+    background-repeat: no-repeat;
+    background-position: right;
 }
 
-.icon--right {
-    position: absolute;
-    bottom: 23px;
-    right: 90px;
+.startIcon {
+    background-repeat: no-repeat;
+    background-position: 0.5rem;
 }
 
-.icon--left {
-    position: absolute;
-    bottom: 15px;
-    right: 90px;
+.mobile {
+    background-image: url(/mobile.a7e8e4db.svg);
+}
+
+.thumbup {
+    background-image: url(/thumb-up.650b4802.svg);
+}
+
+.phoneoutgoing {
+    background-image: url(/phone-outgoing.571408f4.svg);
+}
+
+.lockclosed {
+    background-image: url(/lock-closed.0b4ba272.svg);
+}
+
+.mail {
+    background-image: url(/mail.1f83bf7a.svg);
 }
 
 /*# sourceMappingURL=/script.75da7f30.css.map */

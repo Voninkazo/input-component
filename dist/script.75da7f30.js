@@ -28357,92 +28357,12 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"icons/mobile.svg":[function(require,module,exports) {
-module.exports = "/mobile.a7e8e4db.svg";
-},{}],"icons/lock-closed.svg":[function(require,module,exports) {
-module.exports = "/lock-closed.0b4ba272.svg";
-},{}],"icons/phone-outgoing.svg":[function(require,module,exports) {
-module.exports = "/phone-outgoing.571408f4.svg";
-},{}],"icons/thumb-up.svg":[function(require,module,exports) {
-module.exports = "/thumb-up.650b4802.svg";
-},{}],"icons/mail.svg":[function(require,module,exports) {
-module.exports = "/mail.1f83bf7a.svg";
-},{}],"Icon.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _mobile = _interopRequireDefault(require("./icons/mobile.svg"));
-
-var _lockClosed = _interopRequireDefault(require("./icons/lock-closed.svg"));
-
-var _phoneOutgoing = _interopRequireDefault(require("./icons/phone-outgoing.svg"));
-
-var _thumbUp = _interopRequireDefault(require("./icons/thumb-up.svg"));
-
-var _mail = _interopRequireDefault(require("./icons/mail.svg"));
-
-require("./inputs.css");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Icons(props) {
-  var icon;
-  var style = props.align === "icon--right" ? "icon--right" : "icon--left";
-
-  switch (props.name) {
-    case 'mobile':
-      icon = /*#__PURE__*/_react.default.createElement("img", {
-        src: _mobile.default,
-        className: style
-      });
-      break;
-
-    case 'lock-closed':
-      icon = /*#__PURE__*/_react.default.createElement("img", {
-        src: _lockClosed.default,
-        className: style
-      });
-      break;
-
-    case 'phoneuotgoing':
-      icon = /*#__PURE__*/_react.default.createElement("img", {
-        src: _phoneOutgoing.default,
-        className: style
-      });
-      break;
-
-    case 'thumbup':
-      icon = /*#__PURE__*/_react.default.createElement("img", {
-        src: _thumbUp.default,
-        className: style
-      });
-      break;
-
-    case 'mail':
-      icon = /*#__PURE__*/_react.default.createElement("img", {
-        src: _mail.default,
-        className: style
-      });
-      break;
-  }
-
-  return icon;
-}
-
-var _default = Icons;
-exports.default = _default;
-},{"react":"node_modules/react/index.js","./icons/mobile.svg":"icons/mobile.svg","./icons/lock-closed.svg":"icons/lock-closed.svg","./icons/phone-outgoing.svg":"icons/phone-outgoing.svg","./icons/thumb-up.svg":"icons/thumb-up.svg","./icons/mail.svg":"icons/mail.svg","./inputs.css":"inputs.css"}],"icons.css":[function(require,module,exports) {
+},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"icons.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Inputs.js":[function(require,module,exports) {
+},{"./icons\\mobile.svg":[["mobile.a7e8e4db.svg","icons/mobile.svg"],"icons/mobile.svg"],"./icons\\thumb-up.svg":[["thumb-up.650b4802.svg","icons/thumb-up.svg"],"icons/thumb-up.svg"],"./icons\\phone-outgoing.svg":[["phone-outgoing.571408f4.svg","icons/phone-outgoing.svg"],"icons/phone-outgoing.svg"],"./icons\\lock-closed.svg":[["lock-closed.0b4ba272.svg","icons/lock-closed.svg"],"icons/lock-closed.svg"],"./icons\\mail.svg":[["mail.1f83bf7a.svg","icons/mail.svg"],"icons/mail.svg"],"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Inputs.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28453,30 +28373,28 @@ exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 
 require("./inputs.css");
-
-var _Icon = _interopRequireDefault(require("./Icon"));
 
 require("./icons.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Inputs(props) {
-  var classes;
-
-  if (props.error) {
-    classes = "".concat(props.error);
-  }
+  var classes = props.error ? "".concat(props.error) : 'input';
 
   if (props.value) {
     classes = "".concat(props.value);
+  } else if (props.error) {
+    classes = "error";
   } else if (props.disabled) {
     classes = "input--disabled";
   } else if (props.size) {
     classes = "input--".concat(props.size);
   } else if (props.fullWidth) {
     classes = "fullwidth";
-  } else if (props.multiLine) {
-    classes = "multiline";
+  } else if (props.startIcon) {
+    classes = "startIcon ".concat(props.startIcon);
+  } else if (props.endIcon) {
+    classes = "endIcon ".concat(props.endIcon);
   }
 
   return /*#__PURE__*/_react.default.createElement("div", {
@@ -28485,29 +28403,20 @@ function Inputs(props) {
     className: props.helperTexts ? "helpertext" : ''
   }, /*#__PURE__*/_react.default.createElement("p", {
     className: props.error ? "label-error" : ''
-  }, "Label"), /*#__PURE__*/_react.default.createElement("span", {
-    className: props.startIcon ? "icon--left" : "icon--right"
-  }, props.startIcon ? /*#__PURE__*/_react.default.createElement(_Icon.default, {
-    name: props.startIcon,
-    align: "icon--left"
-  }) : '', props.endIcon ? /*#__PURE__*/_react.default.createElement(_Icon.default, {
-    name: props.endIcon,
-    align: "icon--right"
-  }) : ''), /*#__PURE__*/_react.default.createElement("input", {
+  }, "Label"), /*#__PURE__*/_react.default.createElement("input", {
     className: classes,
     disabled: props.disabled,
     type: "text",
     value: props.value ? "".concat(props.value) : '',
     placeholder: props.children
-  }), props.helperTexts ? /*#__PURE__*/_react.default.createElement("span", null, props.helperTexts ? "".concat(props.helperTexts) : '') : '', props.multiLine ? /*#__PURE__*/_react.default.createElement("textarea", {
-    name: "text",
-    rows: "4"
-  }) : ''));
+  }), props.helperTexts ? /*#__PURE__*/_react.default.createElement("span", {
+    className: props.error ? "text-error" : ''
+  }, props.helperTexts ? "".concat(props.helperTexts) : '') : ''));
 }
 
 var _default = Inputs;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./inputs.css":"inputs.css","./Icon":"Icon.js","./icons.css":"icons.css"}],"App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./inputs.css":"inputs.css","./icons.css":"icons.css"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28522,31 +28431,37 @@ var _Inputs = _interopRequireDefault(require("./Inputs"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Inputs.default, null, "Placeholder"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Inputs.default, null, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     error: true
-  }, "Placeholder"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+  }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     disabled: true
-  }, "Placeholder"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+  }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", {
+    className: "flex-container"
+  }, /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     helperTexts: "Some texts"
   }, "Placeholder"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     helperTexts: "Some texts",
     error: true
-  }, "Placeholder"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+  }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", {
+    className: "flex-container"
+  }, /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     startIcon: "mobile"
-  }), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+  }, "Placeholder"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     endIcon: "thumbup"
-  }), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+  }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     value: "input text"
-  }), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+  }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", {
+    className: "flex-container"
+  }, /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     size: "sm"
   }, "Placeholder"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     size: "md"
-  }, "Placeholder"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+  }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     fullWidth: true
-  }, "Placeholder"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+  }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     multiLine: true,
     rows: "4"
-  }));
+  })));
 }
 
 var _default = App;
