@@ -10,7 +10,7 @@ function App() {
                 <Inputs helperTexts="Some texts">Placeholder</Inputs>
                 <Inputs helperTexts="Some texts" error>Placeholder</Inputs>
                 <Inputs startIcon="mobile"></Inputs>
-                <Inputs endIcon="lock-closed"></Inputs>
+                <Inputs endIcon="thumbup"></Inputs>
             </div>
     )   
 }

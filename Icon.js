@@ -8,25 +8,26 @@ import './inputs.css';
 
 function Icons(props) {
     let icon;
+    const style = props.align === "icon--right" ? `icon--right` : `icon--left`
     switch (props.name) {
         case 'mobile':
-            icon = < img src = { IconMobile }
+            icon = < img src = { IconMobile } className={style}
             />
             break;
         case 'lock-closed':
-            icon = < img src = { LockClosed }
+            icon = < img src = { LockClosed } className={style}
             />
             break;
         case 'phoneuotgoing':
-            icon = < img src = { PhoneOutgoing }
+            icon = < img src = { PhoneOutgoing } className={style}
             />
             break;
         case 'thumbup':
-            icon = < img src = { ThumbUp }
+            icon = < img src = { ThumbUp } className={style}
             />
             break;
         case 'mail':
-            icon = < img src = { Mail }
+            icon = < img src = { Mail } className={style}
             />
             break;
     }

@@ -28393,35 +28393,41 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function Icons(props) {
   var icon;
+  var style = props.align === "icon--right" ? "icon--right" : "icon--left";
 
   switch (props.name) {
     case 'mobile':
       icon = /*#__PURE__*/_react.default.createElement("img", {
-        src: _mobile.default
+        src: _mobile.default,
+        className: style
       });
       break;
 
     case 'lock-closed':
       icon = /*#__PURE__*/_react.default.createElement("img", {
-        src: _lockClosed.default
+        src: _lockClosed.default,
+        className: style
       });
       break;
 
     case 'phoneuotgoing':
       icon = /*#__PURE__*/_react.default.createElement("img", {
-        src: _phoneOutgoing.default
+        src: _phoneOutgoing.default,
+        className: style
       });
       break;
 
     case 'thumbup':
       icon = /*#__PURE__*/_react.default.createElement("img", {
-        src: _thumbUp.default
+        src: _thumbUp.default,
+        className: style
       });
       break;
 
     case 'mail':
       icon = /*#__PURE__*/_react.default.createElement("img", {
-        src: _mail.default
+        src: _mail.default,
+        className: style
       });
       break;
   }
@@ -28453,17 +28459,18 @@ function Inputs(props) {
     className: props.helperTexts ? "helpertext" : ''
   }, /*#__PURE__*/_react.default.createElement("p", {
     className: props.error ? "label-error" : ''
-  }, "Label"), /*#__PURE__*/_react.default.createElement("input", {
+  }, "Label"), /*#__PURE__*/_react.default.createElement("span", null, props.startIcon ? /*#__PURE__*/_react.default.createElement(_Icon.default, {
+    name: props.startIcon,
+    align: "icon--left"
+  }) : '', props.endIcon ? /*#__PURE__*/_react.default.createElement(_Icon.default, {
+    name: props.endIcon,
+    align: "icon--right"
+  }) : ''), /*#__PURE__*/_react.default.createElement("input", {
     className: classes,
     disabled: props.disabled,
     type: "text",
     placeholder: props.children
-  }), /*#__PURE__*/_react.default.createElement("span", null, props.helperTexts ? "".concat(props.helperTexts) : ''), /*#__PURE__*/_react.default.createElement("span", null, props.startIcon ? /*#__PURE__*/_react.default.createElement(_Icon.default, {
-    name: props.startIcon
-  }) : '', props.endIcon ? /*#__PURE__*/_react.default.createElement(_Icon.default, {
-    name: props.endIcon,
-    align: "right"
-  }) : '')));
+  }), /*#__PURE__*/_react.default.createElement("span", null, props.helperTexts ? "".concat(props.helperTexts) : '')));
 }
 
 var _default = Inputs;
@@ -28495,7 +28502,7 @@ function App() {
   }, "Placeholder"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     startIcon: "mobile"
   }), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
-    endIcon: "lock-closed"
+    endIcon: "thumbup"
   }));
 }
 
@@ -28541,7 +28548,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63120" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55110" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

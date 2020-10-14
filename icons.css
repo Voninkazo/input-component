@@ -1,0 +1,13 @@
+label {
+    position: relative;
+}
+
+.icon--right {
+    position: absolute;
+    text-align: right;
+}
+
+.icon--left {
+    position: absolute;
+    text-align: left;
+}
