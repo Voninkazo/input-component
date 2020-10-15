@@ -4,6 +4,7 @@ import Inputs from './Inputs';
 function App() {
     return (
             <div>
+              <h1>Sandy Input Components</h1>
                 <div>
                   <p>{`<Input />`}</p>
                   <Inputs>Placeholder</Inputs>
