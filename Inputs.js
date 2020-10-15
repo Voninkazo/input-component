@@ -29,15 +29,16 @@ function Inputs(props) {
         return (
             <div className="parent">
                 <label className={props.helperTexts ? `helpertext` : ''}>
-                    <p className={ props.error ? `label-error` : ''}>Label</p>
-                    <input 
+                    <input style={{order:2}}
                     className={classes}
                     disabled={props.disabled} 
                     type="text" 
                     value={props.value ? `${props.value}` : ''}
                     placeholder={props.children}
                     />
-                    { props.helperTexts ? <span className={props.error ? `text-error` : ''}>{props.helperTexts ? `${props.helperTexts}` : ''}</span> : ''}
+                    <p style={{order:1}} className={ props.error ? `label-error` : ''}>Label</p>
+                    { props.helperTexts ? <span style={{order:3}} className={props.error && props.error ? `text-error` : ''}>
+                    {props.helperTexts ? `${props.helperTexts}` : ''}</span> : ''}
                 </label>
             </div>
         )

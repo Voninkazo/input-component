@@ -28401,16 +28401,25 @@ function Inputs(props) {
     className: "parent"
   }, /*#__PURE__*/_react.default.createElement("label", {
     className: props.helperTexts ? "helpertext" : ''
-  }, /*#__PURE__*/_react.default.createElement("p", {
-    className: props.error ? "label-error" : ''
-  }, "Label"), /*#__PURE__*/_react.default.createElement("input", {
+  }, /*#__PURE__*/_react.default.createElement("input", {
+    style: {
+      order: 2
+    },
     className: classes,
     disabled: props.disabled,
     type: "text",
     value: props.value ? "".concat(props.value) : '',
     placeholder: props.children
-  }), props.helperTexts ? /*#__PURE__*/_react.default.createElement("span", {
-    className: props.error ? "text-error" : ''
+  }), /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      order: 1
+    },
+    className: props.error ? "label-error" : ''
+  }, "Label"), props.helperTexts ? /*#__PURE__*/_react.default.createElement("span", {
+    style: {
+      order: 3
+    },
+    className: props.error && props.error ? "text-error" : ''
   }, props.helperTexts ? "".concat(props.helperTexts) : '') : ''));
 }
 
@@ -28431,34 +28440,46 @@ var _Inputs = _interopRequireDefault(require("./Inputs"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Inputs.default, null, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "<Input />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, null, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "<Input error />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     error: true
-  }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+  }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "<Input disabled />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     disabled: true
   }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", {
     className: "flex-container"
-  }, /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "flex-column"
+  }, /*#__PURE__*/_react.default.createElement("p", null, "<Input helperTexts=\"Some texts\" />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     helperTexts: "Some texts"
-  }, "Placeholder"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+  }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", {
+    className: "flex-column"
+  }, /*#__PURE__*/_react.default.createElement("p", null, "<Input helperTexts=\"Some texts\" error />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     helperTexts: "Some texts",
     error: true
-  }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", {
+  }, "Placeholder"))), /*#__PURE__*/_react.default.createElement("div", {
     className: "flex-container"
-  }, /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "flex-column"
+  }, /*#__PURE__*/_react.default.createElement("p", null, "<Input startIcon />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     startIcon: "mobile"
-  }, "Placeholder"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+  }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", {
+    className: "flex-column"
+  }, /*#__PURE__*/_react.default.createElement("p", null, "<Input endIcon />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     endIcon: "thumbup"
-  }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+  }, "Placeholder"))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "<Input value=\"text\" />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     value: "input text"
   }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", {
     className: "flex-container"
-  }, /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "flex-column"
+  }, /*#__PURE__*/_react.default.createElement("p", null, "<Input size=\"sm\" />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     size: "sm"
-  }, "Placeholder"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+  }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", {
+    className: "flex-column"
+  }, /*#__PURE__*/_react.default.createElement("p", null, "<Input size=\"smd\" />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     size: "md"
-  }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+  }, "Placeholder"))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "<Input fullWidth />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     fullWidth: true
-  }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+  }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "<Input multiLine rows=\"4\" />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     multiLine: true,
     rows: "4"
   })));
@@ -28506,7 +28527,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55110" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64971" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

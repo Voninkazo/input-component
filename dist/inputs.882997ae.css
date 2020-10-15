@@ -8,6 +8,7 @@ input {
     border: 1px solid #828282;
     box-sizing: border-box;
     border-radius: 8px;
+    width: 200px;
 }
 
 .flex-container {
@@ -28,6 +29,11 @@ p {
     padding-inline-start: 1rem;
 }
 
+label {
+    display: flex;
+    flex-direction: column;
+}
+
 .input:hover {
     border: 1px solid #333333;
 }
@@ -46,9 +52,10 @@ p {
     color: #D32F2F;
 }
 
-.label-error:hover {
+
+/* .label-error:hover {
     color: #828282;
-}
+} */
 
 .error:hover {
     border: 1px solid #333333;
@@ -59,13 +66,17 @@ p {
     outline: none;
 }
 
+.error:hover+.label-error {
+    color: #828282;
+}
+
+.error:focus+.label-error {
+    color: #D32F2F;
+}
+
 .helpertext {
     display: flex;
     flex-direction: column;
-}
-
-.helpertext input {
-    width: 200px;
 }
 
 .input--disabled {
@@ -101,7 +112,10 @@ p {
     width: 100%;
 }
 
-.multiline {}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
 
 span {
     font-size: 10px;
