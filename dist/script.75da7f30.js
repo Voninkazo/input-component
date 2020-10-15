@@ -28399,9 +28399,7 @@ function Inputs(props) {
 
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "parent"
-  }, /*#__PURE__*/_react.default.createElement("label", {
-    className: props.helperTexts ? "helpertext" : ''
-  }, /*#__PURE__*/_react.default.createElement("input", {
+  }, /*#__PURE__*/_react.default.createElement("label", null, !props.multiLine ? /*#__PURE__*/_react.default.createElement("input", {
     style: {
       order: 2
     },
@@ -28409,6 +28407,10 @@ function Inputs(props) {
     disabled: props.disabled,
     type: "text",
     value: props.value ? "".concat(props.value) : '',
+    placeholder: props.children
+  }) : /*#__PURE__*/_react.default.createElement("textarea", {
+    multiLine: true,
+    rows: "4",
     placeholder: props.children
   }), /*#__PURE__*/_react.default.createElement("p", {
     style: {
@@ -28482,7 +28484,7 @@ function App() {
   }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "<Input multiLine rows=\"4\" />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
     multiLine: true,
     rows: "4"
-  })));
+  }, "Placeholder")));
 }
 
 var _default = App;

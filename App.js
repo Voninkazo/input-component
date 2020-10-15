@@ -57,7 +57,7 @@ function App() {
                </div>
                <div> 
                    <p>{`<Input multiLine rows="4" />`}</p>
-                   <Inputs multiLine rows="4"></Inputs>
+                   <Inputs multiLine rows="4">Placeholder</Inputs>
                 </div>
             </div>
     )   

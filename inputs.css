@@ -81,10 +81,11 @@ label {
     color: #D32F2F;
 }
 
-.helpertext {
+
+/* .helpertext {
     display: flex;
     flex-direction: column;
-}
+} */
 
 .input--disabled {
     background-color: #F2F2F2;
