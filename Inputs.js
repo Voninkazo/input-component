@@ -25,20 +25,28 @@ function Inputs(props) {
     else if (props.endIcon) {
         classes=`endIcon ${props.endIcon}`
     }
-
         return (
             <div className="parent">
                 <label>
                     {!props.multiLine ?
                      <input style={{order:2}}
                      className={classes}
-                     disabled={props.disabled} 
                      type="text" 
-                     value={props.value ? `${props.value}` : ''}
                      placeholder={props.children}
+                     value={props.value ? `${props.value}` : ''}
+                     onChange={e => {
+						if (handleChange) {
+							handleChange(e.target.value);
+						}
+                    }}
                  />
-                    : <textarea multiLine rows="4" placeholder={props.children}></textarea>}
-                   
+                    : 
+                    <textarea
+                    type="text"
+                     multiLine rows="4" 
+                     placeholder={props.children}>
+                    </textarea>}
+
                 <p style={{order:1}} className={ props.error ? `label-error` : ''}>Label</p>
                     { props.helperTexts ? <span style={{order:3}} className={props.error && props.error ? `text-error` : ''}>
                     {props.helperTexts ? `${props.helperTexts}` : ''}</span> : ''}

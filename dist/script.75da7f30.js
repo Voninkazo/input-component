@@ -28404,11 +28404,16 @@ function Inputs(props) {
       order: 2
     },
     className: classes,
-    disabled: props.disabled,
     type: "text",
+    placeholder: props.children,
     value: props.value ? "".concat(props.value) : '',
-    placeholder: props.children
+    onChange: function onChange(e) {
+      if (handleChange) {
+        handleChange(e.target.value);
+      }
+    }
   }) : /*#__PURE__*/_react.default.createElement("textarea", {
+    type: "text",
     multiLine: true,
     rows: "4",
     placeholder: props.children
@@ -28435,57 +28440,119 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _Inputs = _interopRequireDefault(require("./Inputs"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function App() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Sandy Input Components"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "<Input />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, null, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "<Input error />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
-    error: true
-  }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "<Input disabled />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
-    disabled: true
-  }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", {
-    className: "flex-container"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "flex-column"
-  }, /*#__PURE__*/_react.default.createElement("p", null, "<Input helperTexts=\"Some texts\" />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
-    helperTexts: "Some texts"
-  }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", {
-    className: "flex-column"
-  }, /*#__PURE__*/_react.default.createElement("p", null, "<Input helperTexts=\"Some texts\" error />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
-    helperTexts: "Some texts",
-    error: true
-  }, "Placeholder"))), /*#__PURE__*/_react.default.createElement("div", {
-    className: "flex-container"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "flex-column"
-  }, /*#__PURE__*/_react.default.createElement("p", null, "<Input startIcon />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
-    startIcon: "mobile"
-  }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", {
-    className: "flex-column"
-  }, /*#__PURE__*/_react.default.createElement("p", null, "<Input endIcon />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
-    endIcon: "thumbup"
-  }, "Placeholder"))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "<Input value=\"text\" />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
-    value: "input text"
-  }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", {
-    className: "flex-container"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "flex-column"
-  }, /*#__PURE__*/_react.default.createElement("p", null, "<Input size=\"sm\" />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
-    size: "sm"
-  }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", {
-    className: "flex-column"
-  }, /*#__PURE__*/_react.default.createElement("p", null, "<Input size=\"smd\" />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
-    size: "md"
-  }, "Placeholder"))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "<Input fullWidth />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
-    fullWidth: true
-  }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "<Input multiLine rows=\"4\" />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
-    multiLine: true,
-    rows: "4"
-  }, "Placeholder")));
-}
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var App = /*#__PURE__*/function (_Component) {
+  _inherits(App, _Component);
+
+  var _super = _createSuper(App);
+
+  function App() {
+    var _this;
+
+    _classCallCheck(this, App);
+
+    _this = _super.call(this);
+    _this.state = {
+      value: 'value from state'
+    };
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(App, [{
+    key: "handleChange",
+    value: function handleChange(value) {
+      this.setState({
+        value: value
+      });
+      console.log('value in state', this.state.value);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _React$createElement;
+
+      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Sandy Input Components"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "<Input />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, null, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "<Input error />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+        error: true
+      }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "<Input disabled />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+        disabled: true
+      }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", {
+        className: "flex-container"
+      }, /*#__PURE__*/_react.default.createElement("div", {
+        className: "flex-column"
+      }, /*#__PURE__*/_react.default.createElement("p", null, "<Input helperTexts=\"Some texts\" />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+        helperTexts: "Some texts"
+      }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", {
+        className: "flex-column"
+      }, /*#__PURE__*/_react.default.createElement("p", null, "<Input helperTexts=\"Some texts\" error />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+        helperTexts: "Some texts",
+        error: true
+      }, "Placeholder"))), /*#__PURE__*/_react.default.createElement("div", {
+        className: "flex-container"
+      }, /*#__PURE__*/_react.default.createElement("div", {
+        className: "flex-column"
+      }, /*#__PURE__*/_react.default.createElement("p", null, "<Input startIcon />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+        startIcon: "mobile"
+      }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", {
+        className: "flex-column"
+      }, /*#__PURE__*/_react.default.createElement("p", null, "<Input endIcon />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+        endIcon: "thumbup"
+      }, "Placeholder"))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "<Input value=\"text\" />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, (_React$createElement = {
+        value: "input text"
+      }, _defineProperty(_React$createElement, "value", this.state.value), _defineProperty(_React$createElement, "handleChange", this.handleChange), _React$createElement))), /*#__PURE__*/_react.default.createElement("div", {
+        className: "flex-container"
+      }, /*#__PURE__*/_react.default.createElement("div", {
+        className: "flex-column"
+      }, /*#__PURE__*/_react.default.createElement("p", null, "<Input size=\"sm\" />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+        size: "sm"
+      }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", {
+        className: "flex-column"
+      }, /*#__PURE__*/_react.default.createElement("p", null, "<Input size=\"smd\" />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+        size: "md"
+      }, "Placeholder"))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "<Input fullWidth />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+        fullWidth: true
+      }, "Placeholder")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "<Input multiLine rows=\"4\" />"), /*#__PURE__*/_react.default.createElement(_Inputs.default, {
+        multiLine: true,
+        rows: "4"
+      }, "Placeholder")));
+    }
+  }]);
+
+  return App;
+}(_react.Component);
 
 var _default = App;
 exports.default = _default;
@@ -28529,7 +28596,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64971" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64611" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

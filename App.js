@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Inputs from './Inputs';
 
-function App() {
+class App extends Component {
+  constructor() {
+    super();
+    this.state ={
+      value : 'value from state',
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(value) {
+		this.setState({
+			value,
+		});
+		console.log('value in state', this.state.value);
+  }
+  render() {
     return (
             <div>
               <h1>Sandy Input Components</h1>
@@ -39,7 +53,11 @@ function App() {
                 </div>
               <div>
               <p>{`<Input value="text" />`}</p>
-                <Inputs value="input text">Placeholder</Inputs>
+                <Inputs
+                 value="input text"
+                 value={this.state.value}
+						    handleChange={this.handleChange}
+                />
               </div>
               <div className="flex-container">
               <div className="flex-column">
@@ -61,6 +79,7 @@ function App() {
                 </div>
             </div>
     )   
+  }
 }
 
 export default App;

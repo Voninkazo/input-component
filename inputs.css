@@ -81,15 +81,10 @@ label {
     color: #D32F2F;
 }
 
-
-/* .helpertext {
-    display: flex;
-    flex-direction: column;
-} */
-
 .input--disabled {
     background-color: #F2F2F2;
     border: 1px solid #E0E0E0;
+    cursor: not-allowed;
 }
 
 .text-error {
